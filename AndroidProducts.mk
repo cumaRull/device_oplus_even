@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/fluid_even.mk
+    $(LOCAL_DIR)/nad_even.mk
 
 COMMON_LUNCH_CHOICES := \
-    fluid_even-eng \
-    fluid_even-userdebug \
-    fluid_even-user
+    nad_even-eng \
+    nad_even-userdebug \
+    nad_even-user
