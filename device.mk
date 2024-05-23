@@ -100,7 +100,7 @@ TARGET_SCREEN_WIDTH := 720
 
 # Camera
 PRODUCT_PACKAGES += \
-    $(DEVICE_PATH)/configs/apps/Camera
+    Camera
 
 
 # DT2W
@@ -222,8 +222,7 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
-    $(DEVICE_PATH)/configs/apps/ScreenRecorder
-	
+    ScreenRecorder	
 # Speed up
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep \
