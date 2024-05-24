@@ -39,9 +39,6 @@ TARGET_SCREEN_WIDTH := 720
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 
-# Extra VNDK Versions
-PRODUCT_EXTRA_VNDK_VERSIONS := 30
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@6.0.vendor \
@@ -200,8 +197,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/power/power_app_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/power_app_cfg.xml
 
 # Properties
--include $(DEVICE_PATH)/configs/props/system.prop
--include $(DEVICE_PATH)/configs/props/product.prop
+-include $(DEVICE_PATH)/configs/props/vendor_logging_prop.mk
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Recovery
@@ -212,6 +208,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     RemovePackages
 
+# VNDK
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-core/libmedia_helper.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmedia_helper-v30.so \
+    prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libunwindstack.so:$(TARGET_COPY_OUT_VENDOR)/lib/libunwindstack-v30.so \
+    prebuilts/vndk/v30/arm64/arch-arm-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib/libutils-v30.so
+
+PRODUCT_COPY_FILES += \
+    prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils-v30.so \
+    prebuilts/vndk/v30/arm64/arch-arm64-armv8-a/shared/vndk-sp/libunwindstack.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libunwindstack-v30.so
+
+
 # Screen density
 PRODUCT_AAPT_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
@@ -219,7 +226,8 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Screen Recorder
 PRODUCT_PACKAGES += \
-    ScreenRecorder	
+    ScreenRecorder
+	
 # Speed up
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep \
