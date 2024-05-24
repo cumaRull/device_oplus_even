@@ -35,7 +35,6 @@ persist.sys.nfc.antenna_area=bottom
 
 # OMX
 debug.stagefright.omx_default_rank.sw-audio=1
-debug.stagefright.omx_default_rank=0
 debug.stagefright.ccodec=0
 
 # Performance
@@ -116,13 +115,13 @@ dalvik.vm.madvise.artfile.size=4294967295
 debug.cpurend.vsync=false
 persist.device_config.runtime_native.usap_pool_enabled=true
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
-ro.surface_flinger.running_without_sync_framework=true
+
 pm.dexopt.boot=speed-profile
 ro.iorapd.enable=true
 iorapd.perfetto.enable=true
 iorapd.readahead.enable=true
 hwui.disable_vsync=true
 debug.cpurend.vsync=false
-ro.surface_flinger.running_without_sync_framework=0
+
 debug.stagefright.omx_default_rank=1000
 persist.sys.scrollingcache=3
